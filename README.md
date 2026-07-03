@@ -7,7 +7,7 @@ Check if it's a good day to go outside based on weather and air quality, with ne
 - **Weather & Air Quality Check**: Real-time weather and AQI data for any US zip code
 - **Smart Recommendations**: Color-coded verdicts (green/yellow/red) based on temperature, precipitation, wind, and air quality
 - **Nearby Places**: Discover family-friendly parks, playgrounds, and museums with accessibility features
-- **Historical Trends**: View temperature and AQI trends over the last 14 days (via MotherDuck embed or TrendChart fallback)
+- **Historical Trends**: View the last 14 days of weather checks via MotherDuck's embedded Dive feature (an interactive SQL exploration tool), with a TrendChart fallback if the embed is unavailable
 
 ## Tech Stack
 
@@ -114,6 +114,3 @@ outside-app/
 └── README.md
 ```
 
-## License
-
-MIT
