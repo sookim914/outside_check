@@ -119,7 +119,6 @@ app.get('/api/places', async (req, res) => {
       );
       const cachedRows = cached.getRowObjects();
       if (cachedRows.length > 0) {
-        console.log('Serving places from cache');
         return res.json(JSON.parse(cachedRows[0].data));
       }
   
@@ -210,7 +209,6 @@ app.get('/api/places', async (req, res) => {
         }
       );
       const data = await response.json();
-      console.log('MotherDuck embed session response:', data);
 
       res.json(data);
     } catch (err) {

@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import PlacesList from './PlacesList';
+import TrendChart from './TrendChart';
 import './App.css';
 
 const BACKEND_URL = 'http://localhost:3001';
 
 function App() {
-  const [zip, setZip] = useState('');
   const [zipInput, setZipInput] = useState('');
   const [coords, setCoords] = useState(null);
   const [conditions, setConditions] = useState(null);
@@ -35,7 +35,7 @@ function App() {
       const data = await res.json();
       const place = data.places[0];
       setCoords({ lat: parseFloat(place.latitude), lon: parseFloat(place.longitude) });
-      setZip(zipInput);
+      setZipInput(zipInput);
     } catch (err) {
       setError(err.message);
       setLoading(false);
@@ -95,7 +95,7 @@ function App() {
             </div>
           </div>
 
-          {diveSession && (
+          {diveSession ? (
             <iframe
               src={`https://embed-motherduck.com/sandbox/#session=${diveSession}`}
               sandbox="allow-scripts allow-same-origin"
@@ -104,6 +104,8 @@ function App() {
               style={{ border: 'none', borderRadius: 12, marginTop: 20 }}
               title="Temperature & AQI Dive"
             />
+          ) : (
+            <TrendChart backendUrl={BACKEND_URL} />
           )}
           <PlacesList backendUrl={BACKEND_URL} coords={coords} />
         </>
