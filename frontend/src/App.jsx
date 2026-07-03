@@ -44,7 +44,6 @@ function App() {
 
   useEffect(() => {
     if (!coords) return;
-    setLoading(true);
     fetch(`${BACKEND_URL}/api/current?lat=${coords.lat}&lon=${coords.lon}`)
       .then((res) => res.json())
       .then((data) => {
