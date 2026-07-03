@@ -3,6 +3,9 @@ import express from 'express';
 import cors from 'cors';
 import { DuckDBInstance } from '@duckdb/node-api';
 
+// Set HOME environment variable for DuckDB in serverless
+process.env.HOME = '/tmp';
+
 function toJSONSafe(obj) {
   return JSON.parse(JSON.stringify(obj, (_, value) =>
     typeof value === 'bigint' ? Number(value) : value
@@ -17,12 +20,12 @@ async function getConnection() {
   if (!dbInstance) {
     dbInstance = await DuckDBInstance.create('md:outside_app', {
       motherduck_token: process.env.MOTHERDUCK_TOKEN,
-      config: {
-        home_directory: '/tmp'
-      }
     });
   }
-  return await dbInstance.connect();
+  const conn = await dbInstance.connect();
+  // Ensure home directory is set for each connection
+  await conn.run("SET home_directory='/tmp'");
+  return conn;
 }
 
 // --- Kid-friendly scoring ---
