@@ -3,7 +3,7 @@ import PlacesList from './PlacesList';
 import TrendChart from './TrendChart';
 import './App.css';
 
-const BACKEND_URL = 'http://localhost:3001';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
 
 function App() {
   const [zipInput, setZipInput] = useState('');
