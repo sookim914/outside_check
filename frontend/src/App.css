@@ -1,0 +1,64 @@
+.app {
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: -apple-system, sans-serif;
+  text-align: center;
+}
+
+.verdict-card {
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+  margin: 20px 0;
+}
+
+.verdict-card h2 { margin: 0 0 8px; }
+.reason { opacity: 0.9; margin: 0 0 16px; }
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+}
+.stats div { display: flex; flex-direction: column; }
+.stats strong { font-size: 20px; }
+.stats span { font-size: 12px; opacity: 0.8; }
+
+.trend-chart { margin-top: 30px; text-align: left; }
+.trend-empty { color: #888; margin-top: 30px; }
+.error { color: #e53935; }
+
+.places-list { margin-top: 30px; text-align: left; }
+.place-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.place-emoji { font-size: 24px; }
+.place-type, .place-tag { color: #888; font-size: 13px; }
+.places-loading, .places-empty { color: #888; margin-top: 30px; }
+
+.zip-form {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 16px 0;
+}
+.zip-form input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 140px;
+}
+.zip-form button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #333;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
