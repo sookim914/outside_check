@@ -28,7 +28,7 @@ function PlacesList({ backendUrl, coords }) {
 
   return (
     <div className="places-list">
-      <h3>Nearby for the kids</h3>
+      <h3>Family-friendly spots nearby</h3>
       {sorted.slice(0, 10).map((p, i) => (
         <div key={i} className="place-item">
           <span className="place-emoji">{typeEmoji[p.type]}</span>
