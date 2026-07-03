@@ -17,11 +17,10 @@ async function getConnection() {
   if (!dbInstance) {
     dbInstance = await DuckDBInstance.create('md:outside_app', {
       motherduck_token: process.env.MOTHERDUCK_TOKEN,
+      config: {
+        home_directory: '/tmp'
+      }
     });
-    const conn = await dbInstance.connect();
-    // Set home directory to /tmp for Vercel serverless environment
-    await conn.run("SET home_directory='/tmp'");
-    await conn.close();
   }
   return await dbInstance.connect();
 }
